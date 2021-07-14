@@ -4,6 +4,7 @@ import ShowCard from "../components/showCard";
 export default function Home() {
   const [upComing, setUpComing] = useState([]);
   const [topRated, setTopRated] = useState([]);
+  const [valIndex, setValIndex] = useState(0);
   const [mostPopular, setMostPopular] = useState([]);
   const URL = "https://api.themoviedb.org/3/movie/";
   useEffect(() => {
@@ -16,7 +17,7 @@ export default function Home() {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => setUpComing(result.results))
+      .then(async (result) => await setUpComing(result.results))
       .catch((error) => console.log("error", error));
 
     fetch(
@@ -24,7 +25,7 @@ export default function Home() {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => setTopRated(result.results))
+      .then(async (result) => await setTopRated(result.results))
       .catch((error) => console.log("error", error));
 
     fetch(
@@ -32,9 +33,10 @@ export default function Home() {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => setMostPopular(result.results))
+      .then(async (result) => await setMostPopular(result.results))
       .catch((error) => console.log("error", error));
   }, []);
+  console.log(upComing[0]);
   return (
     <>
       <div className="nav-section">
@@ -51,18 +53,14 @@ export default function Home() {
         </div>
       </div>
       {/* data.title,overview,poster_path,release_date */}
-      {upComing?.map((item) => {
-        if (item.id == 459151)
-          return (
-            <ShowCard
-              key={item.id}
-              title={item.title}
-              overview={item.overview}
-              imgPath={item.poster_path}
-              releaseDate={item.release_date}
-            />
-          );
-      })}
+      <div className="showco">
+        <ShowCard key={upComing[valIndex]?.id} />
+        {/* <div className="container actions">
+          <button onClick={(e) => setValIndex(valIndex + 1)}>next</button>
+          <p>{valIndex + 1}</p>
+          <button onClick={(e) => setValIndex(valIndex - 1)}>back</button>
+        </div> */}
+      </div>
       <div className="container-min min-def">
         <p className="top-rated">Top Rated</p>
         <div className="sub-container">

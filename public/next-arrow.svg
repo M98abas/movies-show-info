@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="935" height="1034" viewBox="0 0 935 1034">
+  <defs>
+    <clipPath id="clip-Web_1920_1">
+      <rect width="935" height="1034"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_1" data-name="Web 1920 – 1" clip-path="url(#clip-Web_1920_1)">
+    <rect width="935" height="1034" fill="rgba(255,255,255,0)"/>
+    <line id="Line_1" data-name="Line 1" x1="438" y2="445" transform="translate(248.5 86.5)" fill="none" stroke="#ffba00" stroke-width="25"/>
+    <line id="Line_2" data-name="Line 2" x1="438" y1="427" transform="translate(248.5 520.5)" fill="none" stroke="#ffba00" stroke-width="25"/>
+  </g>
+</svg>

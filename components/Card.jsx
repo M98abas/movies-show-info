@@ -11,6 +11,7 @@ const Cards = ({ imgPath, filmTitle, releaseDate, overview }) => {
         <p>{releaseDate}</p>
         <p className="overview">{overview}</p>
       </div>
+      
     </div>
   );
 };
