@@ -1,45 +1,121 @@
 import { useEffect, useState } from "react";
+import Cards from "../components/Card";
 import ShowCard from "../components/showCard";
 export default function Home() {
-  const [data, setData] = useState([]);
+  const [upComing, setUpComing] = useState([]);
+  const [topRated, setTopRated] = useState([]);
+  const [mostPopular, setMostPopular] = useState([]);
+  const URL = "https://api.themoviedb.org/3/movie/";
   useEffect(() => {
     var requestOptions = {
       method: "GET",
       redirect: "follow",
     };
-
     fetch(
-      "https://api.themoviedb.org/3/movie/upcoming?api_key=4a28ece117410f6f3409c96f11c560d5&language=en-US",
+      `${URL}upcoming?api_key=4a28ece117410f6f3409c96f11c560d5&language=en-US`,
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => setData(result.results))
+      .then((result) => setUpComing(result.results))
+      .catch((error) => console.log("error", error));
+
+    fetch(
+      `${URL}top_rated?api_key=4a28ece117410f6f3409c96f11c560d5&language=en-US`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setTopRated(result.results))
+      .catch((error) => console.log("error", error));
+
+    fetch(
+      `${URL}popular?api_key=4a28ece117410f6f3409c96f11c560d5&language=en-US`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setMostPopular(result.results))
       .catch((error) => console.log("error", error));
   }, []);
   return (
     <>
       <div className="nav-section">
         <div className="container">
-          <img className="logo" src="Mask Group 3.png" alt="logo" />
-          <div className="right-side">
-            <input type="text" placeholder="Find move..." />
-            <button>
-              <img src="icon.png" alt="" />
-            </button>
+          <div className="ins-container">
+            <img className="logo" src="Mask Group 3.png" alt="logo" />
+            <div className="right-side">
+              <input type="text" placeholder="Find move..." />
+              <button>
+                <img src="icon.png" alt="" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
       {/* data.title,overview,poster_path,release_date */}
-      {data?.map((item) => {
-        return (
-          <ShowCard
-            title={item.title}
-            overview={item.overview}
-            imgPath={item.poster_path}
-            releaseDate={item.release_date}
-          />
-        );
+      {upComing?.map((item) => {
+        if (item.id == 459151)
+          return (
+            <ShowCard
+              key={item.id}
+              title={item.title}
+              overview={item.overview}
+              imgPath={item.poster_path}
+              releaseDate={item.release_date}
+            />
+          );
       })}
+      <div className="container-min min-def">
+        <p className="top-rated">Top Rated</p>
+        <div className="sub-container">
+          {topRated?.map((item) => {
+            // if (item.id == 19404)
+            return (
+              <Cards
+                key={item.id}
+                imgPath={item.poster_path}
+                filmTitle={item.title}
+                releaseDate={item.release_date}
+                overview={item.overview}
+              />
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="container-min min-def">
+        <p className="top-rated">Most Popular</p>
+        <div className="sub-container">
+          {mostPopular?.map((item) => {
+            // if (item.id == 19404)
+            return (
+              <Cards
+                key={item.id}
+                imgPath={item.poster_path}
+                filmTitle={item.title}
+                releaseDate={item.release_date}
+                overview={item.overview}
+              />
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="container-min min-def">
+        <p className="top-rated">upComing</p>
+        <div className="sub-container">
+          {upComing?.map((item) => {
+            // if (item.id == 19404)
+            return (
+              <Cards
+                key={item.id}
+                imgPath={item.poster_path}
+                filmTitle={item.title}
+                releaseDate={item.release_date}
+                overview={item.overview}
+              />
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 }

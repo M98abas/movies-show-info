@@ -1,14 +1,16 @@
-const ShowCard = ({ title, overview, imgPath, releaseDate }) => {
-  console.log("callinf");
+const ShowCard = ({ title, imgPath, releaseDate }) => {
   const imgepath = `https://image.tmdb.org/t/p/w500/${imgPath}`;
   return (
-    <div className="show-card">
-      <img src={imgepath} alt="img" />
-      <div className="contianer">
-        <p>{title}</p>
+    <div className="show-card animation">
+      <img className="cover-photo" src={imgepath} alt="img" />
+      <div className="container">
+        <p className="title">{title}</p>
         {/* <p>classMovie</p> */}
-        <p>{releaseDate}</p>
-        <p>Play Icon</p>
+        <p className="releaseData">{releaseDate}</p>
+        <div className="play-place">
+          <img className="play-icon" src="../PLAY.png" alt="" />
+          <p>Show trailer</p>
+        </div>
       </div>
     </div>
   );
