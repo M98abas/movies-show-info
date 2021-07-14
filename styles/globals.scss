@@ -19,9 +19,18 @@ div {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @media only screen and (max-width: 700px) {
+        width: 500px;
+        // background-color: red;
+      }
       .logo {
         width: 85px;
         height: 84px;
+        @media only screen and (max-width: 700px) {
+          width: 75px;
+          height: 74px;
+          padding: 10px 5px;
+        }
       }
       .right-side {
         align-items: center;
@@ -43,8 +52,13 @@ div {
           background-color: #29303d;
 
           // border
+          @media only screen and (max-width: 700px) {
+            width: auto;
+            font-size: 14px;
+            height: 26px;
+          }
         }
-        p {
+        a {
           border: none;
           outline: none;
           height: 36px;
@@ -58,11 +72,19 @@ div {
           align-items: center;
           border-top-right-radius: 50px;
           border-bottom-right-radius: 50px;
+          @media only screen and (max-width: 700px) {
+            height: 25px;
+            width: auto;
+          }
           img {
             width: 20px;
             height: 20px;
             margin: auto;
             background-color: #29303d;
+            @media only screen and (max-width: 700px) {
+              height: 20px;
+              width: 20px;
+            }
           }
         }
       }
@@ -135,14 +157,23 @@ div {
       justify-content: left;
       text-align: left;
       color: white;
+      @media only screen and (max-width: 700px) {
+        padding: 200px 10px;
+      }
       .title {
         margin: auto;
         font-size: 35px;
+        @media only screen and (max-width: 700px) {
+          font-size: 25px;
+        }
       }
       .releaseData {
         // padding: 5px 0;
         font-size: 23px;
         color: #ffba00;
+        @media only screen and (max-width: 700px) {
+          font-size: 19px;
+        }
       }
       .play-place {
         padding: 15px 0;
@@ -197,7 +228,10 @@ div {
     padding-left: 100px;
     color: white;
     font-size: 31px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    @media only screen and (max-width: 700px) {
+      font-size: 26px;
+    }
   }
 
   .sub-container {
@@ -207,7 +241,7 @@ div {
     overflow: auto;
     align-items: center;
     display: flex;
-    gap: 1px;
+    gap: 5px;
     height: auto;
     .content {
       position: relative;
@@ -264,8 +298,13 @@ div {
   }
 }
 .min-def {
-  height: 500px;
+  height: 450px;
   align-items: center;
   justify-content: center;
   padding-top: 50px;
+  @media only screen and (max-width: 700px) {
+    height: 400px;
+
+    padding-top: 30px;
+    }
 }

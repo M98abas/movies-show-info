@@ -36,7 +36,6 @@ export default function Home() {
       .then(async (result) => await setMostPopular(result.results))
       .catch((error) => console.log("error", error));
   }, []);
-  console.log(upComing[0]);
   return (
     <>
       <div className="nav-section">
@@ -45,9 +44,13 @@ export default function Home() {
             <img className="logo" src="Mask Group 3.png" alt="logo" />
             <div className="right-side">
               <input type="text" placeholder="Find move..." />
-              <p>
-                <img src="icon.png" alt="" />
-              </p>
+              <a href="https://imgbb.com/">
+                <img
+                  src="https://i.ibb.co/PcCyXQq/Icon.png"
+                  alt="Icon"
+                  border="0"
+                />
+              </a>
             </div>
           </div>
         </div>

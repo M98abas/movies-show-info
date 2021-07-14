@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 const ShowCard = () => {
   const [upComing, setUpComing] = useState([]);
   const [indexVal, setIndexVal] = useState(0);
-
+  setTimeout(() => {
+    if (indexVal <= 19) setIndexVal(indexVal + 1);
+    else setIndexVal(0);
+  }, 20000);
   useEffect(() => {
     var requestOptions = {
       method: "GET",
