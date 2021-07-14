@@ -199,12 +199,12 @@ div {
         }
       }
     }
-    &:hover {
-      .another-cont {
-        transform: translateY(0) scale(1);
-        height: 330px;
-      }
-    }
+  }
+}
+&:hover {
+  .another-cont {
+    transform: translateY(0) scale(1);
+    height: 330px;
   }
 }
 .min-def {
