@@ -45,9 +45,9 @@ export default function Home() {
             <img className="logo" src="Mask Group 3.png" alt="logo" />
             <div className="right-side">
               <input type="text" placeholder="Find move..." />
-              <button>
+              <p>
                 <img src="icon.png" alt="" />
-              </button>
+              </p>
             </div>
           </div>
         </div>
